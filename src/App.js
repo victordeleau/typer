@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+
+import Menu from "./Main/Menu/Menu";
+import TyperGame from "./Main/TyperGame/TyperGame";
+import Board from "./Main/Board/Board";
+
+class App extends Component {
+
+  state = {
+    display: 0,
+    party_played: 0
+  }
+
+  switchDisplay = (display) => {
+    this.setState({display: display});
+  }
+
+  getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {width, height};
+  }
+
+  render () {
+
+    let content = null;    
+    if ( this.state.display === 1 ) {
+      content = <TyperGame/>
+    } else if ( this.state.display === 2 ) {
+      content = <Board/>;
+    } else { // should be === 0
+      content = <Menu switch={this.switchDisplay.bind(this)}/>;
+    }
+
+    return (
+      <div className="App">
+        <Header switch={this.switchDisplay.bind(this)}/>
+        {content}
+        <Footer top={this.getWindowDimensions().height}/>
+      </div>
+    );
+  }
 }
 
 export default App;

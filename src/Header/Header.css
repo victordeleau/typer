@@ -1,0 +1,23 @@
+
+.header {
+    font-size: x-large;
+    cursor: pointer;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+}
+
+.header_logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 82px;
+    padding-top: 50px;
+    margin-left: 5px;
+}
+
+h1 {
+    vertical-align: top;
+    display: inline-block;
+    width: 160px;
+    margin-top: 55px;
+}

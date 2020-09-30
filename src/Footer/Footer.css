@@ -1,0 +1,17 @@
+
+.footer {
+    position: fixed;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+    background-color: steelblue;
+    height: 35px;
+    padding-top: 15px; 
+}
+
+a {
+    text-align: center;
+    font-weight: bold;
+    color: beige;
+    text-decoration: none;
+}
