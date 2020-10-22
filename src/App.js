@@ -33,7 +33,12 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Menu}/>
           <Route exact path='/setup' component={Setup}/>
-          <Route exact path='/play' component={Play}/>
+          <Route exact path='/play' render={(props) => (
+              <Play
+                language={this.state.language}
+                textType={this.state.textType}  
+              />
+          )}/>
           <Route exact path='/board' component={Board}/>
         </Switch>
 

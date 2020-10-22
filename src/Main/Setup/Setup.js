@@ -14,8 +14,6 @@ const Setup = (props) => {
         textDef = <p>Select a paragraph from a book.</p>
     }
 
-    console.log("hey", textType)
-
     return (
 
         <div className={styles.setup}>

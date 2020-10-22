@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom"; 
 import styles from "./Menu.module.css";
 
-const menu = (props) => {
+const Menu = (props) => {
 
     return (
         <div className={styles.menu}>
@@ -29,4 +29,4 @@ const menu = (props) => {
     )
 }; 
 
-export default menu;
+export default Menu;

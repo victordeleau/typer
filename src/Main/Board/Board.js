@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./Board.module.css";
 
-const board = (props) => {
+const Board = (props) => {
     return (
         <div className={styles.board}>
             This is the board
@@ -9,4 +9,4 @@ const board = (props) => {
     )
 }; 
 
-export default board;
+export default Board;
