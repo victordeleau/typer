@@ -1,9 +1,9 @@
 import React from 'react';
-import "./Board.css";
+import styles from "./Board.module.css";
 
 const board = (props) => {
     return (
-        <div className="board">
+        <div className={styles.board}>
             This is the board
         </div>
     )

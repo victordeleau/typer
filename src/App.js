@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
-import './App.css';
+import {Switch, Route} from "react-router-dom";
+import styles from './App.module.css';
 
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 
 import Menu from "./Main/Menu/Menu";
-import TyperGame from "./Main/TyperGame/TyperGame";
+import Setup from "./Main/Setup/Setup";
+import Play from "./Main/Play/Play";
 import Board from "./Main/Board/Board";
+
 
 class App extends Component {
 
   state = {
-    display: 0,
-    party_played: 0
-  }
-
-  switchDisplay = (display) => {
-    this.setState({display: display});
+    party_played: 0,
+    language: "english",
+    textType: "random",
   }
 
   getWindowDimensions() {
@@ -26,19 +26,17 @@ class App extends Component {
 
   render () {
 
-    let content = null;    
-    if ( this.state.display === 1 ) {
-      content = <TyperGame/>
-    } else if ( this.state.display === 2 ) {
-      content = <Board/>;
-    } else { // should be === 0
-      content = <Menu switch={this.switchDisplay.bind(this)}/>;
-    }
-
     return (
-      <div className="App">
-        <Header switch={this.switchDisplay.bind(this)}/>
-        {content}
+      <div className={styles.App}>
+        <Header/>
+
+        <Switch>
+          <Route exact path='/' component={Menu}/>
+          <Route exact path='/setup' component={Setup}/>
+          <Route exact path='/play' component={Play}/>
+          <Route exact path='/board' component={Board}/>
+        </Switch>
+
         <Footer top={this.getWindowDimensions().height}/>
       </div>
     );

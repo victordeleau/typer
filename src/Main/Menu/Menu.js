@@ -1,20 +1,30 @@
-import React from 'react';
-import "./Menu.css";
+import React, {useState} from 'react';
+import {Link} from "react-router-dom"; 
+import styles from "./Menu.module.css";
 
 const menu = (props) => {
+
     return (
-        <div className="menu">
-            <div className="definition">
+        <div className={styles.menu}>
+            <div className={styles.definition}>
             <strong>Typer</strong> is a typing game.
             <br/><br/>
-            Type the text as fast and accurately as possible, <br/>get ranked and win the bet ! 
+            Type the text as fast and accurately<br/>as possible and get ranked ! 
             </div>
-            <div className="play_button">
-                <button onClick={() => {props.switch(1)}}> Play </button>
-            </div>
-            <div className="board_button">
-                <button onClick={() => {props.switch(2)}}> Board </button>
-            </div>
+
+            <br/><br/><br/>
+
+            <Link to="/setup" className={styles.play_button}>
+                <button className={styles.button}>
+                    Play 
+                </button>
+            </Link>
+
+            <Link to="/board" className={styles.board_button}>
+                <button className={styles.button}>
+                    Board 
+                </button>
+            </Link>
         </div>
     )
 }; 

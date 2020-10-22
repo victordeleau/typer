@@ -1,7 +1,7 @@
 
 .definition {
     font-size: xx-large;
-    margin-top: 200px;
+    margin-top: 160px;
 }
 
 .play_button {
@@ -25,18 +25,16 @@ button {
     border: 3px solid beige;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 75px;
     vertical-align: middle;
     transition: all 0.3s ease;
 }
 
 button:hover {
-    font-size: x-large;
+    font-size: larger;
     background-color: beige;
     color: steelblue;
     -webkit-transition:all 0.3s ease;
     -moz-transition:all 0.3s ease;
     -o-transition:all 0.3s ease;
     transition: all 0.3s ease;
-
 }
