@@ -1,14 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
 import styles from "./Setup.module.css";
 
 const Setup = (props) => {
 
-    const [language, setLanguage] = useState("english"); 
-    const [textType, setTextType] = useState("random"); 
-
     let textDef = "";
-    if (textType === "random") {
+    if (props.textType === "random") {
         textDef = <p>Select random words from the dictionnary.</p>
     } else { // book
         textDef = <p>Select a paragraph from a book.</p>
@@ -24,10 +21,12 @@ const Setup = (props) => {
             <form>
                 <label>
                     <h3>Language &nbsp; &nbsp; &nbsp;
-                        <select defaultValue={language}
-                            onChange={(e) => setLanguage(e.target.value)}>
-                                <option value="english">English</option>
-                                <option value="french">French</option>
+                        <select 
+                            defaultValue={props.language}
+                            onChange={(e) => props.handleSetup(
+                                e.target.value, props.textType)}>
+                                    <option value="english">English</option>
+                                    <option value="french">French</option>
                         </select>
                     </h3>
                 </label>
@@ -36,10 +35,12 @@ const Setup = (props) => {
 
                 <label>
                     <h3>Text &nbsp; &nbsp; &nbsp;
-                        <select defaultValue={textType}
-                            onChange={(e) => setTextType(e.target.value)}>
-                                <option value="random">Random Words</option>
-                                <option value="book">Book Paragraph</option>
+                        <select
+                            defaultValue={props.textType}
+                            onChange={(e) => props.handleSetup(
+                                props.language, e.target.value)}>
+                                    <option value="random">Random Words</option>
+                                    <option value="book">Book Paragraph</option>
                         </select>
                     </h3>
                     {textDef}

@@ -13,6 +13,8 @@ class Play extends Component {
         wordsToDisplay: [],
         lettersToDisplay: [],
         lettersProvided: [],
+        lettersValidation: [],
+        validationIndex: 0,
         wordNumber: 64,
     }
 
@@ -62,8 +64,6 @@ class Play extends Component {
     }
 
     render() {
-
-        console.log(this.state.lettersToDisplay)
 
         return (
             <div className={styles.play}>

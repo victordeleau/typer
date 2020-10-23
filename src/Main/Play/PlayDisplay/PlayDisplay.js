@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./PlayDisplay.module.css";
 
 const PlayDisplay = (props) => {

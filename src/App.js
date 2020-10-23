@@ -19,6 +19,13 @@ class App extends Component {
     textType: "random",
   }
 
+  handleSetup(newLanguage, newTextType) {
+    this.setState({
+      language: newLanguage,
+      textType: newTextType,
+    })
+  }
+
   getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
     return {width, height};
@@ -32,11 +39,17 @@ class App extends Component {
 
         <Switch>
           <Route exact path='/' component={Menu}/>
-          <Route exact path='/setup' component={Setup}/>
-          <Route exact path='/play' render={(props) => (
+          <Route exact path='/setup' render={() => (
+            <Setup
+                language={this.state.language}
+                textType={this.state.textType}
+                handleSetup={this.handleSetup.bind(this)}
+            />
+          )}/>
+          <Route exact path='/play' render={() => (
               <Play
                 language={this.state.language}
-                textType={this.state.textType}  
+                textType={this.state.textType}
               />
           )}/>
           <Route exact path='/board' component={Board}/>
